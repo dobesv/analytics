@@ -4,9 +4,11 @@ description: Connect Google Analytics to the analytics library
 pageTitle: Google Analytics
 ---
 
-This library exports the `google-analytics` plugin for the [`analytics`](https://www.npmjs.com/package/analytics) package & standalone methods for any project to use to make it easier to interact with [Google Analytics](https://analytics.google.com/analytics/web/).
+This library exports the `google-analytics` plugin for the [`analytics`](https://www.npmjs.com/package/analytics) package & standalone methods for any project to use to make it easier to interact with [Google Analytics 4](https://analytics.google.com/analytics/web/).
 
 This analytics plugin will load google analytics into your application.
+
+Note: to send events to "Universal Analytics", the version of Google Analytics prior to GA4, use the `@analytics/google-analytics-v3` package.
 
 <!-- AUTO-GENERATED-CONTENT:START (TOC:collapse=true&collapseText=Click to expand) -->
 <details>
@@ -58,7 +60,7 @@ const analytics = Analytics({
   app: 'awesome-app',
   plugins: [
     googleAnalytics({
-      trackingId: 'UA-1234567'
+      trackingId: 'G-ABCD123456'
     })
   ]
 })
@@ -67,7 +69,7 @@ const analytics = Analytics({
 analytics.page()
 
 /* Track a custom event */
-analytics.track('playedVideo', {
+analytics.track('video_played', {
   category: 'Videos',
   label: 'Fall Campaign',
   value: 42
@@ -107,7 +109,7 @@ const analytics = Analytics({
   app: 'awesome-app',
   plugins: [
     googleAnalytics({
-      trackingId: 'UA-1234567'
+      trackingId: 'G-ABCD123456'
     })
   ]
 })
@@ -147,7 +149,7 @@ const analytics = Analytics({
   app: 'awesome-app',
   plugins: [
     googleAnalytics({
-      trackingId: '123-xyz'
+      trackingId: 'G-ABCD123456'
     })
   ]
 })
@@ -175,7 +177,7 @@ Below are additional implementation examples.
     app: 'awesome-app',
     plugins: [
       googleAnalytics({
-        trackingId: '123-xyz'
+        trackingId: 'G-ABCD123456'
       })
       // ...other plugins
     ]
@@ -213,7 +215,7 @@ Below are additional implementation examples.
     app: 'my-app-name',
     plugins: [
       googleAnalytics({
-        trackingId: '123-xyz'
+        trackingId: 'G-ABCD123456'
       })
     ]
   })
@@ -255,7 +257,7 @@ Below are additional implementation examples.
           app: 'my-app-name',
           plugins: [
             analyticsGa.init({
-              trackingId: 'UA-1234567'
+              trackingId: 'G-ABCD123456'
             })
           ]
         })
@@ -310,7 +312,7 @@ Below are additional implementation examples.
           debug: true,
           plugins: [
             analyticsGa({
-              trackingId: 'UA-1234567'
+              trackingId: 'G-ABCD123456'
             })
             // ... add any other third party analytics plugins
           ]
@@ -359,7 +361,7 @@ const analytics = Analytics({
   app: 'awesome-app',
   plugins: [
     googleAnalytics({
-      trackingId: 'UA-1223141231',
+      trackingId: 'G-ABCD123456',
       /* Anonymize the IP addresses */
       anonymizeIp: true
     }),
@@ -396,7 +398,7 @@ const analytics = Analytics({
   app: 'awesome-app',
   plugins: [
     googleAnalytics({
-      trackingId: 'UA-1223141231',
+      trackingId: 'G-ABCD123456',
       /* Map your Google Analytics custom dimensions here */
       customDimensions: {
         baz: 'dimension1',
@@ -451,7 +453,7 @@ import googleAnalytics from '@analytics/google-analytics'
 
 // Normal google analytics instance
 const instanceOne = googleAnalytics({
-  trackingId: '123-xyz',
+  trackingId: 'G-ABCD123456',
 })
 
 // Second google analytics instance with override for 'name' field of the plugin
@@ -469,7 +471,7 @@ const instanceTwo = {
 
 /* Object.assign example
 const instanceTwo = Object.assign({}, googleAnalytics({
-    trackingId: '567-abc',
+    trackingId: 'G-EFGH987654',
     instanceName: 'two'
   }), {
     name: 'google-analytics-two'
@@ -503,7 +505,7 @@ const analytics = Analytics({
   app: 'awesome-app',
   plugins: [
     googleAnalytics({
-      trackingId: '123-xyz',
+      trackingId: 'G-ABCD123456',
       customScriptSrc: 'https://my-url.com/to-custom-ga.js'
     })
   ]
@@ -531,7 +533,7 @@ const analytics = Analytics({
   app: 'my-app',
   plugins: [
     googleAnalytics({
-      trackingId: '123-xyz',
+      trackingId: 'G-ABCD123456',
       // Override or disable GA Tasks https://bit.ly/31Xetmg
       tasks: {
         // Set checkProtocolTask, checkStorageTask, & historyImportTask for electron apps
@@ -573,7 +575,7 @@ const analytics = Analytics({
   app: 'cool-app',
   plugins: [
     googleAnalytics({
-      trackingId: '123-xyz',
+      trackingId: 'G-ABCD123456',
       // Override or disable GA Tasks https://bit.ly/31Xetmg
       tasks: {
         // https://developers.google.com/analytics/devguides/collection/analyticsjs/tasks#adding_to_a_task
@@ -632,7 +634,7 @@ const analytics = Analytics({
   app: 'awesome-app',
   plugins: [
     googleAnalytics({
-      trackingId: 'UA-1234567',
+      trackingId: 'G-ABCD123456',
       cookieConfig: {
         cookieName: 'gaCookie',
         cookieDomain: 'blog.example.co.uk',
