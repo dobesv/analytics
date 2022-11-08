@@ -6,7 +6,8 @@ description: Utility library for cross domain localStorage access.
 
 # Analytics Remote Storage Utils
 
-Utilities for cross domain localStorage access.
+Utilities for cross domain localStorage access.  Uses [https://github.com/zendesk/cross-storage](cross-storage) package,
+see the documentation for that to learn more about how this works and how to set up the storage URL.
 
 ## Basic Usage
 
